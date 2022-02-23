@@ -38,16 +38,19 @@ public class HttpServer {
                     break;
                 }
             }
-            outputLine = "<!DOCTYPE html>"
-                    + "<html>"
-                    + "<head>"
-                    + "<meta charset=\"UTF-8\">"
+            outputLine = "HTTP/1.1 200 OK\r\n"
+                    + "Content-Type: text/html\r\n"
+                    + "\r\n"
+                    + "<!DOCTYPE html>\n"
+                    + "<html>\n"
+                    + "<head>\n"
+                    + "<meta charset=\"UTF-8\">\n"
                     + "<title>Title of the document</title>\n"
-                    + "</head>"
-                    + "<body>"
-                    + "My Web Site"
-                    + "</body>"
-                    + "</html>" + inputLine;
+                    + "</head>\n"
+                    + "<body>\n"
+                    + "<h1>Mi propio mensaje</h1>\n"
+                    + "</body>\n"
+                    + "</html>\n" ;
             out.println(outputLine);
             out.close();
             in.close();
