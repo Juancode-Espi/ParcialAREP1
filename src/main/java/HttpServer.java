@@ -38,25 +38,59 @@ public class HttpServer {
                     break;
                 }
             }
-            outputLine = "HTTP/1.1 200 OK\r\n"
-                    + "Content-Type: text/html\r\n"
-                    + "\r\n"
-                    + "<!DOCTYPE html>\n"
-                    + "<html>\n"
-                    + "<head>\n"
-                    + "<meta charset=\"UTF-8\">\n"
-                    + "<title>Title of the document</title>\n"
-                    + "</head>\n"
-                    + "<body>\n"
-                    + "<h1>Mi propio mensaje</h1>\n"
-                    + "</body>\n"
-                    + "</html>\n" ;
+            outputLine = "";
+            if(file.contains("/clima")){
+                outputLine = "HTTP/1.1 200 OK\r\n"
+                        + "Content-Type: text/html\r\n"
+                        + "\r\n"
+                        + "<!DOCTYPE html>\n"
+                        + "<html>\n"
+                        + "<head>\n"
+                        + "<meta charset=\"UTF-8\">\n"
+                        + "<title>Title of the document</title>\n"
+                        + "</head>\n"
+                        + "<body>\n"
+                        + "<h1>Clima</h1>\n"
+                        + "</body>\n"
+                        + "</html>\n" ;
+            }
+            else if(file.contains("/consulta")){
+                outputLine = "HTTP/1.1 200 OK\r\n"
+                        + "Content-Type: text/html\r\n"
+                        + "\r\n"
+                        + "<!DOCTYPE html>\n"
+                        + "<html>\n"
+                        + "<head>\n"
+                        + "<meta charset=\"UTF-8\">\n"
+                        + "<title>Title of the document</title>\n"
+                        + "</head>\n"
+                        + "<body>\n"
+                        + "<h1>Consulta</h1>\n"
+                        + "</body>\n"
+                        + "</html>\n" ;
+            }
+            else {
+                outputLine = "HTTP/1.1 200 OK\r\n"
+                        + "Content-Type: text/html\r\n"
+                        + "\r\n"
+                        + "<!DOCTYPE html>\n"
+                        + "<html>\n"
+                        + "<head>\n"
+                        + "<meta charset=\"UTF-8\">\n"
+                        + "<title>Title of the document</title>\n"
+                        + "</head>\n"
+                        + "<body>\n"
+                        + "<h1>Mi propio mensaje</h1>\n"
+                        + "</body>\n"
+                        + "</html>\n";
+            }
             out.println(outputLine);
             out.close();
             in.close();
             clientSocket.close();
         }
         serverSocket.close();
+
     }
     static int getPort() {
         if (System.getenv("PORT") != null) {
