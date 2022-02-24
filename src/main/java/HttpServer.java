@@ -47,14 +47,28 @@ public class HttpServer {
                         + "<html>\n"
                         + "<head>\n"
                         + "<meta charset=\"UTF-8\">\n"
-                        + "<title>Title of the document</title>\n"
+                        + "<title>Weather-AREP</title>\n"
                         + "</head>\n"
                         + "<body>\n"
                         + "<h1>Clima</h1>\n"
+                        + "<div>"
+                        + "<input type=\"text\" id=city placeholder=\"Ciudad\">"
+                        +"<script> "
+                        +" function climajson(){\n" +
+                        "    fetch('http://localhost:4567/consulta?=london')\n" +
+                        "          .then(response => response.json())\n" +
+                        "          .then(json => console.log(json))\n" +
+                        "    }\n"
+                        +"</script>"
+                        + "<button type=\"button\" onclick=\"climajson()\">Search</button>"
+                        + "</div>"
                         + "</body>\n"
                         + "</html>\n" ;
             }
             else if(file.contains("/consulta")){
+                String country = file.substring(file.lastIndexOf("=") + 1);
+                String res = ConsumeAPI.getClima(country);
+                System.out.println("Country: " + country);
                 outputLine = "HTTP/1.1 200 OK\r\n"
                         + "Content-Type: text/html\r\n"
                         + "\r\n"
@@ -65,7 +79,8 @@ public class HttpServer {
                         + "<title>Title of the document</title>\n"
                         + "</head>\n"
                         + "<body>\n"
-                        + "<h1>Consulta</h1>\n"
+                        + "<h3>" + res +
+                        "</h3>\n"
                         + "</body>\n"
                         + "</html>\n" ;
             }
