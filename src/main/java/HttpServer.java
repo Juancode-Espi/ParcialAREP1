@@ -67,8 +67,9 @@ public class HttpServer {
             }
             else if(file.contains("/consulta")){
                 String country = file.substring(file.lastIndexOf("=") + 1);
+                ConsumeAPI ca = new ConsumeAPI();
                 String res = ConsumeAPI.getClima(country);
-                System.out.println("Country: " + country);
+                System.out.println("Country: " + res);
                 outputLine = "HTTP/1.1 200 OK\r\n"
                         + "Content-Type: text/html\r\n"
                         + "\r\n"

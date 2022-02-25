@@ -2,8 +2,15 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
+import com.google.gson.Gson;
 
 public class ConsumeAPI {
+
+    private static Gson gson;
+
+    public ConsumeAPI(){
+        this.gson = new Gson();
+    }
 
     public static String getClima(String city) throws IOException {
         String res = "{}";
@@ -17,6 +24,6 @@ public class ConsumeAPI {
         } catch (IOException x) {
             System.err.println(x);
         }
-        return res;
+        return gson.toJson(res);
     }
 }
