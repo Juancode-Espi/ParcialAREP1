@@ -2,7 +2,7 @@
 
 
 
-_Taller weather tercio AREP David Enrique Pérez Mejia_
+_Taller weather tercio AREP_
 
 
 
@@ -31,7 +31,7 @@ https://parcialarepprimertercio.herokuapp.com/consulta?lugar=london
 
 
 
-* **Juan Pablo Espinosa**    [David Pérez](https://github.com/DavidPZ666)
+* **Juan Pablo Espinosa**    
 
 
 
